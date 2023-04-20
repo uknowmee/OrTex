@@ -1,0 +1,26 @@
+# Prog1.ot
+
+func myFunction(str, int, limit) {
+    write("hey, its my function! (", str, ")");
+    secondFunction("index: ", int, limit);
+}
+
+func secondFunction(str, int, limit) {
+    write(str, int, " limit: ", limit);
+}
+
+func MAIN(){
+    i = 1;
+    write("i: ", i);
+
+    i = 1 * 2;
+    write("i: ", i);
+
+    e = i + 1;
+    write("e: ", e);
+
+    while (i < 6) {
+        myFunction("Its working...", i, 6);
+        i = i + 1;
+    }
+}

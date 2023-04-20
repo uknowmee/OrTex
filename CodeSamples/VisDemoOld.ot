@@ -1,0 +1,67 @@
+# VisDemoOdl.ot
+# MADE BY: Michał
+# 20.06.2022 15:56
+
+
+func mkList(){
+    lst = new List();
+}->lst;
+
+func mkSpace(){
+#   x size, y size
+    sp = new Space(3000, 3000);
+}->sp;
+
+func mkCrosses(sp){
+    for (y = 500, y<=2500, +1000){
+        for (x = 500, x<=2500, +1000){
+            if (x != 500 or y != 1500){
+#               x, y, size, (says if its roundabout or not)
+                sp.addCross(x, y, 70, true);
+            }
+        }
+    }
+
+    sp.addCross(500, 1500, 80, false);
+}
+
+func mkConnections(sp){
+    road_size = 70;
+#   string: pavement, bike road, road type (num of crossing 1->9), uni directional
+#   string, size, from, angle, len
+    sp.addRoadUn("0010", road_size, sp.Cross(8), 180, 500);
+    sp.addRoadUn("0010", road_size, sp.Cross(1), 90, 500);
+
+
+    sp.addRoad("1120", road_size, sp.Cross(0), sp.Cross(8));
+    sp.addRoad("1111", road_size, sp.Cross(0), sp.Cross(1));
+    sp.addRoad("1110", road_size, sp.Cross(1), sp.Cross(2));
+    sp.addRoad("0010", road_size, sp.Cross(2), sp.Cross(4));
+    sp.addRoad("0011", road_size, sp.Cross(2), sp.Cross(3));
+    sp.addRoad("0010", road_size, sp.Cross(8), sp.Cross(3));
+    sp.addRoad("0010", road_size, sp.Cross(8), sp.Cross(6));
+    sp.addRoad("0010", road_size, sp.Cross(5), sp.Cross(6));
+    sp.addRoad("0010", road_size, sp.Cross(6), sp.Cross(7));
+}
+
+func mkBuildings(sp){
+
+    sp.addBuilding("Bank", "thistle",
+                            mkList().pushB(1450, 1450, 1450, 1100, 1200, 1100, 1200, 1450));
+
+    sp.addField("Football", "polygon", "green",
+                            mkList().pushB(1200, 1450, 700, 1450, 700, 700, 1200, 700));
+
+    sp.addField("Rossman", "polygon", "red",
+                            mkList().pushB(1550, 1350, 1550, 1050, 2000, 600, 2000, 900));
+}
+
+func MAIN(){
+    sp = mkSpace();
+
+    mkCrosses(@sp);
+    mkConnections(@sp);
+    mkBuildings(@sp);
+
+    sp.draw();
+}

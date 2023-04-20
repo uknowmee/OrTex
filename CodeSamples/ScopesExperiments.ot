@@ -1,0 +1,86 @@
+# Cokolwiek.ot
+# MADE BY: Michał
+# 30.05.2022 21:36
+
+func scopes(){
+    [
+        x = 2;
+        [
+            y = x;
+            write(y);
+        ]
+        write(x);
+        write(y);
+    ]
+    write(x);
+
+    x = 2;
+    write(x);
+}
+
+func forScopes1(){
+    x = 1;
+    for (i = 0, i<20, +x){
+        i = i + 1;
+        x = x + 1;
+        write("i: " + i + ", " + "x: " + x);
+    }
+
+#    write(i);
+}
+
+func forScopes2(){
+    i = 2;
+    for (i = 1, i<5, +1){
+#        for (i = 0, i<2, +x){
+#            x = 1;
+#            write("i: " + i + ", x: " + x);
+#        }
+#        write("x: ", x);
+        write(j);
+    }
+    write(i);
+}
+
+func whileScopes(){
+    i = 0;
+    stop = 5;
+    while(i < stop){
+        i = i + 1;
+        x = i;
+        write(x);
+    }
+    write(x);
+}
+
+func ifScopes(){
+    x = 0;
+    know = false;
+    maybe = true;
+    if(!know){
+    	write("i dont know where im going");
+    	if(x==0){
+    	    y = 1;
+    	}
+    	write("y: " + y);
+    	write("x: " + x);
+    } else if (maybe){
+        write("maybe i know where im going");
+        x = 2;
+    } else{
+        write("i know where im going");
+        x = 3;
+    }
+    write(x);
+
+    x = 2;
+    write(x);
+}
+
+func MAIN(){
+#    scopes();
+#    forScopes1();
+#    forScopes2();
+#    whileScopes();
+#    ifScopes();
+}

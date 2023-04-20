@@ -1,0 +1,109 @@
+
+# Prog10.ot
+# MADE BY: Michał
+# 16.04.2022 08:49
+
+
+func makeFirst(matrix){
+    line = new List();
+    rows = 3;
+    cols = 3;
+    j = 0;
+    while(j < rows){
+        for(i=1, i<=cols, +1){
+            line.pushB(i + j * cols);
+        }
+        matrix.pushB(line);
+        line.clear();
+        j = j + 1;
+    }
+}
+
+func makeSecond(matrix){
+    line = new List();
+    rows = 3;
+    cols = 3;
+    j = 0;
+    while(j < rows){
+        for(i=1, i<=cols, +1){
+            line.pushB(10 - i - j * cols);
+        }
+        matrix.pushB(line);
+        line.clear();
+        j = j + 1;
+    }
+}
+
+func makeThird(matrix){
+    line = new List();
+    rows = 3;
+    cols = 3;
+    j = 0;
+    while(j < rows){
+        for(i=1, i<=cols, +1){
+            line.pushB(0);
+        }
+        matrix.pushB(line);
+        line.clear();
+        j = j + 1;
+    }
+}
+
+func makeMatrix(matrix, case){
+    matrix = new List();
+    if(case == true){
+        makeFirst(@matrix);
+    } else if(case == false){
+        makeSecond(@matrix);
+    } else if(case == null){
+        makeThird(@matrix);
+    }
+}
+
+func printMatrix(matrix){
+    for(i=0, i<matrix.size(), +1){
+        line = matrix.get(i);
+        str = "";
+        for(j=0, j<line.size(), +1){
+            str = str + line.get(j) + " ";
+        }
+        write(str);
+    }
+    write("\n");
+}
+
+func makeResult(result, matrix1, matrix2){
+    rows = 3;
+    cols = 3;
+
+    for (i = 0, i<rows, +1){
+        for (j = 0, j<cols, +1){
+            sum = matrix1.get(i,j) + matrix2.get(i,j);
+            result.set(i,j,sum);
+        }
+    }
+}
+
+func MAIN(){
+    matrix1;
+    matrix2;
+    result;
+
+    makeMatrix(@matrix1, true);
+    makeMatrix(@matrix2, false);
+    makeMatrix(@result, null);
+
+    printMatrix(matrix1);
+    printMatrix(matrix2);
+    printMatrix(result);
+
+    makeResult(@result, matrix1, matrix2);
+
+    for (i = 0, i<result.size(), +1){
+        str = "";
+        for (j = 0, j<3, +1){
+            str = str + result.get(i,j) + " ";
+        }
+        write(str);
+    }
+}

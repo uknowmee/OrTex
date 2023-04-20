@@ -1,0 +1,83 @@
+# Demo.ot
+# MADE BY: Michał
+# 11.05.2022 12:52
+
+
+func mkList(scale, xOff, yOff){
+    lst = new List();
+}->lst;
+
+func mkSpace(){
+#   x size, y size
+    sp = new Space(3000, 3000);
+}->sp;
+
+func mkCrosses(sp, scale, xOff, yOff){
+    for (y = 500, y<=2500, +1000){
+        for (x = 500, x<=2500, +1000){
+            if (x != 500 or y != 1500){
+#               x, y, size, (says if its roundabout or not)
+                sp.addCross(x / scale + xOff, y / scale + yOff, 70, true);
+            }
+        }
+    }
+
+    sp.addCross(500 / scale + xOff, 1500 / scale + yOff, 80, false);
+}
+
+func mkConnections(sp, scale, xOff, yOff, num){
+    num = num * 9;
+    road_size = 70;
+#   string: pavement, bike road, road type (num of crossing 1->9), uni directional
+#   string, size, from, angle, len
+    sp.addRoadUn("0010", road_size, sp.Cross(8 + num), 180, 400 / scale);
+    sp.addRoadUn("0010", road_size, sp.Cross(1 + num), 90, 400 / scale);
+
+
+    sp.addRoad("1120", road_size, sp.Cross(0 + num), sp.Cross(8 + num));
+    sp.addRoad("1111", road_size, sp.Cross(0 + num), sp.Cross(1 + num));
+    sp.addRoad("1110", road_size, sp.Cross(1 + num), sp.Cross(2 + num));
+    sp.addRoad("0010", road_size, sp.Cross(2 + num), sp.Cross(4 + num));
+    sp.addRoad("0011", road_size, sp.Cross(2 + num), sp.Cross(3 + num));
+    sp.addRoad("0010", road_size, sp.Cross(8 + num), sp.Cross(3 + num));
+    sp.addRoad("0010", road_size, sp.Cross(8 + num), sp.Cross(6 + num));
+    sp.addRoad("0010", road_size, sp.Cross(5 + num), sp.Cross(6 + num));
+    sp.addRoad("0010", road_size, sp.Cross(6 + num), sp.Cross(7 + num));
+}
+
+func mkBuildings(sp, scale, xOff, yOff){
+
+    sp.addBuilding("Bank", "thistle",
+                            mkList(scale, xOff, yOff).pushB(1450/scale + xOff, 1450/scale +yOff,
+                            1450/scale + xOff, 1100/scale +yOff,
+                             1200/scale + xOff, 1100/scale +yOff, 1200/scale + xOff, 1450/scale +yOff));
+
+    sp.addField("Football", "polygon", "green",
+                            mkList(scale, xOff, yOff).pushB(1200/scale + xOff, 1450/scale +yOff,
+                            700/scale + xOff, 1450/scale +yOff,
+                            700/scale + xOff, 700/scale +yOff, 1200/scale + xOff, 700/scale +yOff));
+
+    sp.addField("Rossman", "polygon", "red",
+                            mkList(scale, xOff, yOff).pushB(1550/scale + xOff, 1350/scale +yOff,
+                            1550/scale + xOff, 1050/scale +yOff,
+                             2000/scale + xOff, 600/scale +yOff, 2000/scale + xOff, 900/scale +yOff));
+}
+
+func MAIN(){
+    scale = 2;
+    xOff = 1500;
+    yOff = 1500;
+    num = 0;
+
+    sp = mkSpace();
+
+    for (y = 0, y<2, +1){
+        for (x = 0, x<2, +1){
+            mkCrosses(@sp, scale, xOff * x, yOff * y);
+            mkConnections(@sp, scale, xOff * x, yOff * y, num);
+            mkBuildings(@sp, scale, xOff * x, yOff * y);
+            num = num + 1;
+        }
+    }
+    sp.draw();
+}

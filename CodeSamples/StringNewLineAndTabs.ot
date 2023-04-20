@@ -1,0 +1,29 @@
+# Prog8.ot
+# MADE BY: Michał
+# 16.04.2022 02:31
+
+
+func square(number, ret){
+    if(number != null){
+        ret = number * number;
+    }
+}
+
+func newNumberPrint(newNumber){
+    write("new number: ", newNumber);
+}
+
+func MAIN(){
+    number = null;
+
+    newNumber = "this will be (number * number)" +
+                "\n\t\t\t(if number is not null)";
+
+    square(number, @newNumber);
+    newNumberPrint(newNumber);
+
+    number = 2;
+
+    square(number, @newNumber);
+    newNumberPrint(newNumber);
+}

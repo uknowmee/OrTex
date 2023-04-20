@@ -1,0 +1,25 @@
+# Prog15.ot
+# MADE BY: Michał
+# 11.05.2022 00:31
+
+
+func MAIN(){
+    myDict = new Dict();
+
+    myDict.add("Michał", 2);
+    myDict.add("Wojtek", 3);
+    myDict.add("Kacper", 4);
+
+    write(myDict);
+
+    michal = myDict.get("Michał");
+    write(michal);
+
+    write(myDict.set("Michał", 5));
+
+    write(myDict.delete("Kacper").size());
+
+    myDict.clear();
+
+    write(myDict);
+}

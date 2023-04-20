@@ -1,0 +1,18 @@
+func writeSomething(shouldKnow){
+
+    maybe = false;
+    if(!shouldKnow){
+    	write("i dont know where im going");
+    } else if (maybe){
+        write("maybe i know where im going");
+    } else{
+        write("i know where im going");
+    }
+
+}
+
+func MAIN(){
+
+    writeSomething(true);
+
+}

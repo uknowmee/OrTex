@@ -1,0 +1,13 @@
+# TemplateGen.ot
+# MADE BY: Michał
+# 14.04.2022 13:23
+
+
+func helloWorld(programmer){
+    write("Hello ", programmer, "! Its nice to see you!");
+}
+
+func MAIN(){
+    name = "OrTexDev Michał";
+    helloWorld(name);
+}

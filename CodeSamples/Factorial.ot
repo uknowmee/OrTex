@@ -1,0 +1,33 @@
+# Test.ot
+# MADE BY: Michał
+# 20.04.2022 12:49
+
+
+func helloWorld(){
+    x = "something";
+}->x;
+
+func recFun(num){
+    fact = 1;
+    if (num > 1){
+        fact = num * recFun(num - 1);
+    }
+}->fact;
+
+func recFun1(num){
+    if (num == 1 or num == 0){
+        num = 1;
+    } else {
+        num = num * recFun(num - 1);
+    }
+}
+
+func MAIN(){
+    write(helloWorld());
+
+    write("factorial(5) = ", recFun(5));
+
+    x = 6;
+    recFun1(x);
+    write(x);
+}

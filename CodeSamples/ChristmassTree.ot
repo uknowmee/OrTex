@@ -1,0 +1,83 @@
+# Prog5.ot
+
+func drawChristmasTree(){
+    for(i = 0, i<=10, +1){
+        str = "";
+        for(j=0, j<=i, +1){
+            str = str + "*";
+        }
+        write(str);
+    }
+}
+
+func drawChristmasTreeInverted(){
+    for(i = 10, i>=0, -1){
+        str = "";
+        for(j = 0, j<=i, +1){
+            str = str + "*";
+        }
+        write(str);
+    }
+}
+
+func writeDistance(){
+    write();
+    write();
+    write();
+}
+
+func writeDivisibleByTwo(){
+
+    bracket = 10;
+    str = "";
+    for(i = 2, i <= 100, +2){
+        if(i < bracket){
+            str = str + i + ",";
+        } else if(i == bracket){
+            str = str + i;
+
+            if (i == 100){
+                write(str);
+            }
+
+        } else{
+            bracket = bracket + 10;
+            write(str);
+            str = "";
+            str = str + i + ",";
+        }
+    }
+}
+
+func writeSquaresOfTwo(){
+    bracket = 100;
+    str = "";
+    for(i=2, i <10000, *2){
+        if(i < bracket){
+            str = str + i + ",";
+        } else{
+            bracket = bracket + 100;
+            write(str);
+            str = "";
+            str = str + i + ",";
+        }
+    }
+    write(str);
+}
+
+func MAIN(){
+
+    drawChristmasTree();
+
+    writeDistance();
+
+    drawChristmasTreeInverted();
+
+    writeDistance();
+
+    writeDivisibleByTwo();
+
+    writeDistance();
+
+    writeSquaresOfTwo();
+}

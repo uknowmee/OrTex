@@ -1,0 +1,20 @@
+# Prog3.ot
+
+func MAIN(){
+
+    i = 0;
+    j = 0;
+
+    str = "hej";
+
+    while(i < 10){
+        str = "";
+        while(j < 10){
+            str = str + "(" + i + "," + j + ")";
+            j = j + 1;
+        }
+        write(str);
+        i = i + 1;
+        j = 0;
+    }
+}

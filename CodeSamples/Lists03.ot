@@ -1,0 +1,16 @@
+# Prog13.ot
+# MADE BY: Michał
+# 17.04.2022 06:06
+
+
+func MAIN(){
+    list = new List();
+    list.pushB(new List());
+
+    write(list.get(0));
+    write(list.get(0).pushB(1,2,3));
+    list.get(0).pushB(3,2,1);
+    write(list.get(0));
+    write(list.get(0).set(list.get(0).size() - 1, "something").get(5));
+    write(list.get(0));
+}

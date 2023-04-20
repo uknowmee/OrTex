@@ -1,0 +1,28 @@
+# Prog11.ot
+# MADE BY: Michał
+# 16.04.2022 19:58
+
+
+func makeLists(list, list2d){
+    list.pushB(1,2,3);
+    list2d.pushB(list);
+}
+
+func MAIN(){
+    list = new List();
+    list2d = new List();
+
+    makeLists(@list, @list2d);
+
+    list3 = list2d.get(0).set(2,5);
+    write(list3);
+    x = list2d.get(0).pushB(4).set(1,6).pushF(8).get(1);
+
+    write(x);
+
+    x = list.pushB(1,2).get(1);
+    write(list2d.get(0));
+    write(list3);
+    write(list);
+    write(x);
+}

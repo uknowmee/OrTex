@@ -1,0 +1,17 @@
+# Prog16.ot
+# MADE BY: Michał
+# 11.05.2022 01:03
+
+
+func MAIN(){
+    dct = new Dict();
+
+    dct.add("Michał", 2);
+    dct.add("Wojtek", 3);
+    dct.add("Kacper", 4);
+    dct.add("Ola", 1);
+    dct.add("Kuba", 8);
+
+    write(dct);
+    write(dct.delete("Michał", "Wojtek"));
+}

@@ -1,0 +1,78 @@
+# ClassDemo.ot
+# MADE BY: Michał
+# 08.06.2022 21:41
+
+
+class Point{
+    constr (x, y){
+        write("in constr");
+        this.pointName;
+        this.xCord = x;
+        this.yCord = y;
+        this = x + 1;
+    }
+
+    func writeOut(){
+        write("x coord: ", this.xCord, ", y coord: ", this.yCord);
+    }
+    func swapXAndY(){
+        temp = this.yCord;
+        this.yCord = this.xCord;
+        this.xCord = temp;
+    }
+    func isXBigger(x){
+        ret = false;
+        if (this.xCord > x){
+            ret = true;
+        }
+    }->ret;
+    func isYBigger(y){
+        ret = false;
+        if (this.yCord > y){
+            ret = true;
+        }
+    }->ret;
+}
+
+class PointMaker{
+    constr (){}
+
+    func makePoint(x, y){
+        ret = new Point(x, y);
+    }->ret;
+}
+
+func myF(){
+    ret = new Point(3,4);
+}->ret;
+
+func MAIN(){
+    list = new List();
+    mp = new Point(2, 3);
+    list.pushB(mp);
+    list.get(0).writeOut();
+    list.get(0).swapXAndY();
+    list.get(0).writeOut();
+
+    write("\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    myF().writeOut();
+
+    write("\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    X = mp.xCord;
+    Y = mp.yCord;
+    mp.pointName = "firstPoint";
+    write(mp.pointName + ": " + X + ", " + Y);
+    if (mp.isYBigger(5)){
+        write("y is bigger");
+    } else {
+        write("y is smaller");
+    }
+
+    write("\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    write(myF().yCord);
+
+    write("\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    pMaker = new PointMaker();
+    write(pMaker.makePoint(1,6).yCord);
+    mp.writeOut();
+}

@@ -1,0 +1,38 @@
+# Test.ot
+# MADE BY: Michał
+# 11.05.2022 01:06
+
+
+func makeStudents(names){
+    sts = new Dict();
+
+    for (i = 0, i<5, +1){
+        str = "student" + i;
+
+        sts.add(str, new List());
+        names.pushB(str);
+
+        for (j = 0, j<=i, +1){
+            sts.get(str).pushB(j);
+        }
+    }
+
+}->sts;
+
+func printStudents(names, students){
+    for (i = 0, i < names.size(), +1){
+        write(students.get(names.get(i)));
+    }
+}
+
+
+func MAIN(){
+    names = new List();
+    students = makeStudents(@names);
+
+    write(names);
+
+    printStudents(names, students);
+
+    write(students.get("student3"));
+}

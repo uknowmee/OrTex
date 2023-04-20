@@ -1,0 +1,13 @@
+# Test.ot
+
+func MAIN(){
+    number;
+    something = false;
+
+    if  (!something){
+        number = 2;
+        write(number + number, " is four");
+        write(number + " + " , number + " is four");
+        write(number, " + " , number + " is four");
+    }
+}

@@ -1,0 +1,35 @@
+# Prog2.ot
+
+func increment(index, stop){
+    printInfo(index, stop);
+
+    index = index + 1;
+
+    nextStopInfo(index, stop);
+}
+
+func nextStopInfo(nextIndex, stop){
+
+    nextStop = stop - nextIndex;
+
+    write("next index: ", nextIndex, " next stop: ", nextStop);
+    write("#####################");
+}
+
+func printInfo(index, stop){
+    write("current index is: ", index, " current stop value: ", stop);
+}
+
+func calcStop(stop, reduce){
+    stop = stop - reduce;
+}
+
+func MAIN(){
+    i = 1;
+    stop = 50;
+
+    while(i < stop){
+        increment(@i, stop);
+        calcStop(@stop, i);
+    }
+}

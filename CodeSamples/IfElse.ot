@@ -1,0 +1,34 @@
+# Prog7.ot
+# MADE BY: Michał
+# 16.04.2022 01:58
+
+
+func helloWorld(programmer){
+    write("Hello ", programmer, "! Its nice to see you!");
+}
+
+func nameChange(name, ret){
+    if(name == "OrTexDev Michał"){
+        ret = "OrTexDev Marcin";
+    } else{
+        ret = "OrTexDevs Team";
+    }
+    write("name has changed");
+}
+
+func MAIN(){
+    name = "OrTexDev Michał";
+    newName;
+
+    nameChange(name, null);
+    helloWorld(newName);
+
+    nameChange(name, "noReturn");
+    helloWorld(newName);
+
+    nameChange(name, @newName);
+    helloWorld(newName);
+
+    nameChange(newName, @newName);
+    helloWorld(newName);
+}

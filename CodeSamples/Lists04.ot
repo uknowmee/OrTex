@@ -1,0 +1,15 @@
+# Prog14.ot
+# MADE BY: Michał
+# 20.04.2022 11:12
+
+
+func newList(){
+    nList = new List();
+    nList.pushB(1,2,3);
+}->nList;
+
+
+func MAIN(){
+    x = newList().pushB("something").get(3);
+    write(x);
+}

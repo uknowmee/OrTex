@@ -1,0 +1,30 @@
+# NewVis.ot
+# MADE BY: Michał
+# 11.05.2022 10:41
+
+func mkList(){
+    lst = new List();
+}->lst;
+
+
+func MAIN(){
+    firstSpace = new List();
+    firstSpace.pushB(new Space(3000, 3000));
+
+    secondSpace = new Space(3000, 3000);
+    secondSpace.addCross(500, 500, 70, true);
+    secondSpace.addCross(1000, 1000, 70, true);
+#    write(secondSpace.Cross(0));
+
+    secondSpace.addRoadUn("0000", 70, secondSpace.Cross(0), 180, 500);
+    secondSpace.addRoad("0000", 70, secondSpace.Cross(0), secondSpace.Cross(1));
+
+#    secondSpace.addBuilding("Bank", "thistle",
+#                            mkList().pushB(1500, 1500, 1000, 1500, 1000, 550, 1500, 550));
+
+#    secondSpace.addField("Baseball", "polygon", "saddlebrown",
+#                            mkList().pushB(1000, 1500, 500, 1500, 500, 550, 1000, 550));
+
+    secondSpace.draw();
+    write("xd");
+}
