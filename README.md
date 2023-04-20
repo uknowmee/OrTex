@@ -1,10 +1,16 @@
+# OrTex - Custom interpretable programming language
+
+During my 4th study semester me and my dear friend [Marcin Kosiba](https://github.com/kosibamarcin) realized this project as a part of course: 
+compilation theory and compilers. The goal of project was to invent custom interpretable programming language based on formal grammar that might be useful for certain people.
+We used [ANTLR](https://www.antlr.org/) Visitor pattern to help us with developing an interpreter for our language. 
+
 # KOMP22-OrTex -- How to Use
 
 1. Simply download repository and use ortex.exe app as given:
-```
-    ortex.exe <path-to-OrTex-script>
-``` 
-2. In Documentation section you can find more informations about our language.
+    ```
+        ortex.exe <path-to-OrTex-script>
+    ``` 
+2. In Documentation section you can find more information about our language.
 
 # KOMP22-OrTex -- How to Contribute
 
